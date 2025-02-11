@@ -59,11 +59,11 @@ export default function SellPhoneForm() {
   return (
     <div className="max-w-lg mx-auto p-6 mt-10 bg-white shadow-lg rounded-lg">
       <h1 className="text-2xl font-bold mb-4 ml-36">Cash Mobile</h1>
-      <h2 className="text-xl font-semibold mb-4">Sell Your Mobile</h2>
+      <h2 className="text-xl font-semibold mb-4 text-black">Sell Your Mobile</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Mobile Brand */}
         <div>
-          <label className="block font-medium">Mobile Brand</label>
+          <label className="block font-medium text-black">Mobile Brand</label>
           <select
             name="brand"
             value={formData.brand}
@@ -71,7 +71,7 @@ export default function SellPhoneForm() {
             required
             className="w-full p-2 border rounded"
           >
-            <option value="">Select a brand</option>
+            <option value="" className="text-black">Select a brand</option>
             {brands.map((brand) => (
               <option key={brand} value={brand}>
                 {brand}
@@ -82,7 +82,7 @@ export default function SellPhoneForm() {
 
         {/* Model */}
         <div>
-          <label className="block font-medium">Model</label>
+          <label className="block font-medium text-black">Model</label>
           <input
             type="text"
             name="model"
@@ -96,7 +96,7 @@ export default function SellPhoneForm() {
 
         {/* Variant */}
         <div>
-          <label className="block font-medium">Variant</label>
+          <label className="block font-medium text-black">Variant</label>
           <select
             name="variant"
             value={formData.variant}
@@ -104,7 +104,7 @@ export default function SellPhoneForm() {
             required
             className="w-full p-2 border rounded"
           >
-            <option value="">Select a variant</option>
+            <option value="" className="text-black">Select a variant</option>
             {variants.map((variant) => (
               <option key={variant} value={variant}>
                 {variant}
@@ -115,7 +115,7 @@ export default function SellPhoneForm() {
 
         {/* Description */}
         <div>
-          <label className="block font-medium">Description</label>
+          <label className="block font-medium text-black">Description</label>
           <textarea
             name="description"
             value={formData.description}
@@ -128,7 +128,7 @@ export default function SellPhoneForm() {
 
         {/* Expected Price */}
         <div>
-          <label className="block font-medium">Expected Price</label>
+          <label className="block font-medium text-black">Expected Price</label>
           <input
             type="number"
             name="price"
@@ -142,7 +142,7 @@ export default function SellPhoneForm() {
 
         {/* Mobile Number */}
         <div>
-          <label className="block font-medium">Mobile Number</label>
+          <label className="block font-medium text-black">Mobile Number</label>
           <input
             type="tel"
             name="mobile"
@@ -150,7 +150,7 @@ export default function SellPhoneForm() {
             onChange={handleChange}
             required
             placeholder="Enter your mobile number"
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded text-black"
           />
         </div>
 
@@ -163,8 +163,8 @@ export default function SellPhoneForm() {
         </button>
       </form>
 
-      <div className="mt-4 text-center"> Contact Us on Call or WhatsApp </div>
-      <div className="mt-4 text-center">+91 7670836076</div>
+      <div className="mt-4 text-center text-black font-bold"> Contact Us on Call or WhatsApp </div>
+      <div className="mt-4 text-center text-black font-bold">+91 7670836076</div>
     </div>
   );
 }
