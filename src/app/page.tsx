@@ -58,6 +58,7 @@ export default function SellPhoneForm() {
 
   return (
     <div className="max-w-lg mx-auto p-6 mt-10 bg-white shadow-lg rounded-lg">
+      <h1 className="text-2xl font-bold mb-4 ml-36">Cash Mobile</h1>
       <h2 className="text-xl font-semibold mb-4">Sell Your Mobile</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Mobile Brand */}
@@ -161,6 +162,9 @@ export default function SellPhoneForm() {
           Submit
         </button>
       </form>
+
+      <div className="mt-4 text-center"> Contact Us on Call or WhatsApp </div>
+      <div className="mt-4 text-center">+91 7670836076</div>
     </div>
   );
 }
