@@ -13,7 +13,7 @@ export default function SellPhoneForm() {
     mobile: "",
   });
 
-  const brands = ["Apple", "Samsung", "OnePlus", "Google", "Xiaomi", "Other"];
+  const brands = ["Apple", "Samsung", "OnePlus", "Google", "Xiaomi", "Realme", "Redmi", "Oppo", "Vivo", "Other"];
   const variants = ["64GB", "128GB", "256GB", "512GB", "Other"];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -57,6 +57,8 @@ export default function SellPhoneForm() {
   };
 
   return (
+    <>
+    <div className="text-center text-black mt-10 font-bold text-xl"> SELL YOUR OLD PHONE AND GET AN OPTIMUM PRICE</div>
     <div className="max-w-lg mx-auto p-6 mt-10 bg-white shadow-lg rounded-lg">
       <h1 className="text-2xl font-bold mb-4 ml-36 text-black">Cash Mobile</h1>
       <h2 className="text-xl font-semibold mb-4 text-black">Sell Your Mobile</h2>
@@ -166,5 +168,7 @@ export default function SellPhoneForm() {
       <div className="mt-4 text-center text-black font-bold"> Contact Us on Call or WhatsApp </div>
       <div className="mt-4 text-center text-black font-bold">+91 7670836076</div>
     </div>
+    
+    </>
   );
 }
