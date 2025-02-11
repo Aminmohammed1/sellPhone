@@ -58,10 +58,13 @@ export default function SellPhoneForm() {
 
   return (
     <>
-    <div className="text-center text-black mt-10 font-bold text-xl"> SELL YOUR OLD PHONE AND GET AN OPTIMUM PRICE</div>
-    <div className="max-w-lg mx-auto p-6 mt-10 bg-white shadow-lg rounded-lg">
+    <div
+      className="min-h-screen bg-cover bg-center"
+      style={{ backgroundImage: "url('bg.jpg')" }}
+    >
+    <div className="text-center text-black font-bold text-xl pt-12"> SELL YOUR OLD PHONE AND GET AN OPTIMUM PRICE</div>
+    <div className="max-w-lg mx-auto p-6 mt-10 bg-white shadow-lg rounded-lg bg-opacity-15">
       <h1 className="text-2xl font-bold mb-4 ml-36 text-black">Cash Mobile</h1>
-      <h2 className="text-xl font-semibold mb-4 text-black">Sell Your Mobile</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Mobile Brand */}
         <div>
@@ -168,7 +171,7 @@ export default function SellPhoneForm() {
       <div className="mt-4 text-center text-black font-bold"> Contact Us on Call or WhatsApp </div>
       <div className="mt-4 text-center text-black font-bold">+91 7670836076</div>
     </div>
-    
+    </div>
     </>
   );
 }
