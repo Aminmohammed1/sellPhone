@@ -58,7 +58,7 @@ export default function SellPhoneForm() {
 
   return (
     <div className="max-w-lg mx-auto p-6 mt-10 bg-white shadow-lg rounded-lg">
-      <h1 className="text-2xl font-bold mb-4 ml-36">Cash Mobile</h1>
+      <h1 className="text-2xl font-bold mb-4 ml-36 text-black">Cash Mobile</h1>
       <h2 className="text-xl font-semibold mb-4 text-black">Sell Your Mobile</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Mobile Brand */}
@@ -69,7 +69,7 @@ export default function SellPhoneForm() {
             value={formData.brand}
             onChange={handleChange}
             required
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded text-black"
           >
             <option value="" className="text-black">Select a brand</option>
             {brands.map((brand) => (
@@ -90,7 +90,7 @@ export default function SellPhoneForm() {
             onChange={handleChange}
             required
             placeholder="Enter model name"
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded text-black"
           />
         </div>
 
@@ -102,7 +102,7 @@ export default function SellPhoneForm() {
             value={formData.variant}
             onChange={handleChange}
             required
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded text-black"
           >
             <option value="" className="text-black">Select a variant</option>
             {variants.map((variant) => (
@@ -122,7 +122,7 @@ export default function SellPhoneForm() {
             onChange={handleChange}
             required
             placeholder="Describe the phone condition"
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded text-black"
           />
         </div>
 
@@ -136,7 +136,7 @@ export default function SellPhoneForm() {
             onChange={handleChange}
             required
             placeholder="Enter expected price"
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded text-black"
           />
         </div>
 
