@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import emailjs from "emailjs-com";
+import Image from "next/image";
 
 export default function SellPhoneForm() {
   const [formData, setFormData] = useState({
@@ -179,7 +180,7 @@ export default function SellPhoneForm() {
 
       <div className="mt-4 text-center text-black font-bold"> Contact Us on Call or WhatsApp </div>
       <div className="mt-4 text-center text-black font-bold flex justify-center">
-      <img src="/phone.jpeg" className="h-8" alt="sell mobile" />
+      <Image src="/phone.jpeg" className="h-8" alt="sell mobile" />
         <a href="tel:+917670836076" className="text-black hover:underline hover:text-blue-500 ml-2">
                   +91 7670836076
                 </a></div>

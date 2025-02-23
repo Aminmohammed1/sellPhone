@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
-import Link from "next/link";
+// import Link from "next/link";
 // import { Button } from "@/components/ui";
 
 export default function Home() {
@@ -44,7 +45,7 @@ export default function Home() {
             <p>Trade in your old phone for instant cash.</p>
             <p className="flex justify-center">Free pickup service</p>
             <div className="flex justify-center mt-2 gap-2 items-center">
-              <img src="/phone.jpeg" className="h-8" alt="sell mobile" />
+            <Image src="/phone.jpeg" className="h-8" alt="sell mobile" />
               <p className="text-black font-semibold">
                 <a href="tel:+917670836076" className="text-black hover:underline hover:text-blue-500">
                   +91 7670836076
