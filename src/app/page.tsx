@@ -1,177 +1,63 @@
 "use client";
 
-import { useState } from "react";
-import emailjs from "emailjs-com";
+import { useRouter } from "next/navigation";
+import React from "react";
+import Link from "next/link";
+// import { Button } from "@/components/ui";
 
-export default function SellPhoneForm() {
-  const [formData, setFormData] = useState({
-    brand: "",
-    model: "",
-    variant: "",
-    description: "",
-    price: "",
-    mobile: "",
-  });
+export default function Home() {
+  function Button({ children, className, onClick }: { children: React.ReactNode, className: string, onClick?: () => void; }) {
+    return (
+      <button className={className} onClick={onClick}>
+        {children}
+      </button>
+    );
+  }
 
-  const brands = ["Apple", "Samsung", "OnePlus", "Google", "Xiaomi", "Realme", "Redmi", "Oppo", "Vivo", "Other"];
-  const variants = ["64GB", "128GB", "256GB", "512GB", "Other"];
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Convert form data to JSON
-    const jsonData = JSON.stringify(formData, null, 2);
-    console.log(jsonData);
-
-    // Send email using EmailJS
-    emailjs
-      .send(
-        "service_1c9nt2p", // Replace with your EmailJS Service ID
-        "template_yuyv2lw", // Replace with your EmailJS Template ID
-        {
-          brand: formData.brand,
-          model: formData.model,
-          variant: formData.variant,
-          description: formData.description,
-          price: formData.price,
-          mobile: formData.mobile,
-          jsonData: jsonData, // JSON data (optional)
-        },
-        "hX5ZguBU-HD83qd9E" // Replace with your EmailJS User ID
-      )
-      .then(
-        (response) => {
-          console.log("SUCCESS!", response.status, response.text);
-          alert("Form submitted successfully!");
-          setFormData({ brand: "", model: "", variant: "", description: "", price: "", mobile: "" });
-        },
-        (error) => {
-          console.log("FAILED...", error);
-          alert("Error sending email. Please try again.");
-        }
-      );
-  };
-
+  const router = useRouter();
   return (
-    <>
-    <div
-      className="min-h-screen bg-cover bg-center"
-      style={{ backgroundImage: "url('bg.jpg')" }}
-    >
-    <div className="text-center text-black font-bold text-xl pt-12"> SELL YOUR OLD PHONE AND GET AN OPTIMUM PRICE</div>
-    <div className="max-w-lg mx-auto p-6 mt-10 bg-white shadow-lg rounded-lg bg-opacity-15">
-      <h1 className="text-2xl font-bold mb-4 ml-36 text-black">Cash Mobile</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Mobile Brand */}
-        <div>
-          <label className="block font-medium text-black">Mobile Brand</label>
-          <select
-            name="brand"
-            value={formData.brand}
-            onChange={handleChange}
-            required
-            className="w-full p-2 border rounded text-black"
-          >
-            <option value="" className="text-black">Select a brand</option>
-            {brands.map((brand) => (
-              <option key={brand} value={brand}>
-                {brand}
-              </option>
-            ))}
-          </select>
+    <div className="w-full min-h-screen bg-gradient-to-r from-blue-500 to-purple-500 flex flex-col items-center p-6 text-white">
+      <div className="w-full flex justify-between items-center">
+        {/* <header className="w-full flex justify-between items-center p-4"> */}
+        <div className="w-full flex">
+          <h1 className="text-[25px] font-bold min-w-fit">cashmobile.in</h1>
         </div>
-
-        {/* Model */}
-        <div>
-          <label className="block font-medium text-black">Model</label>
-          <input
-            type="text"
-            name="model"
-            value={formData.model}
-            onChange={handleChange}
-            required
-            placeholder="Enter model name"
-            className="w-full p-2 border rounded text-black"
-          />
+        <div className="w-full flex justify-end">
+          <nav>
+            <ul className="flex space-x-4 text-lg">
+              <li><a href="#" className="hover:underline">Home</a></li>
+              <li><a href="#" className="hover:underline" onClick={() => router.push("./pages")}>Sell Mobile</a></li>
+            </ul>
+          </nav>
         </div>
-
-        {/* Variant */}
-        <div>
-          <label className="block font-medium text-black">Variant</label>
-          <select
-            name="variant"
-            value={formData.variant}
-            onChange={handleChange}
-            required
-            className="w-full p-2 border rounded text-black"
-          >
-            <option value="" className="text-black">Select a variant</option>
-            {variants.map((variant) => (
-              <option key={variant} value={variant}>
-                {variant}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {/* Description */}
-        <div>
-          <label className="block font-medium text-black">Description</label>
-          <textarea
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-            required
-            placeholder="Describe the phone condition"
-            className="w-full p-2 border rounded text-black"
-          />
-        </div>
-
-        {/* Expected Price */}
-        <div>
-          <label className="block font-medium text-black">Expected Price</label>
-          <input
-            type="number"
-            name="price"
-            value={formData.price}
-            onChange={handleChange}
-            required
-            placeholder="Enter expected price"
-            className="w-full p-2 border rounded text-black"
-          />
-        </div>
-
-        {/* Mobile Number */}
-        <div>
-          <label className="block font-medium text-black">Mobile Number</label>
-          <input
-            type="tel"
-            name="mobile"
-            value={formData.mobile}
-            onChange={handleChange}
-            required
-            placeholder="Enter your mobile number"
-            className="w-full p-2 border rounded text-black"
-          />
-        </div>
-
-        {/* Submit Button */}
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
-        >
-          Submit
-        </button>
-      </form>
-
-      <div className="mt-4 text-center text-black font-bold"> Contact Us on Call or WhatsApp </div>
-      <div className="mt-4 text-center text-black font-bold">+91 7670836076</div>
+        {/* </header> */}
+      </div>
+      <div className="w-fit flex flex-col items-center bg-gradient-to-br from-purple-500 to-gray-900 bg-opacity-30 p-9 rounded-xl shadow-lg mt-20 py-12">
+        <section className="text-center">
+          <h2 className="text-4xl font-bold mb-4">Instantly Sell Your Used Phone</h2>
+          <p className="mb-6 text-lg">Best Price Guaranteed | Secure & Fast</p>
+          <Button onClick={() => router.push("/pages")} className="bg-yellow-500 text-black px-6 py-3 rounded-lg" >Get a Quote</Button>
+        </section>
+        <section className="mt-12 gap-6">
+          <div className="bg-gray-300 text-black p-6 rounded-lg shadow-lg">
+            <h3 className="text-2xl font-semibold flex justify-center">Sell Mobile</h3>
+            <p>Trade in your old phone for instant cash.</p>
+            <p className="flex justify-center">Free pickup service</p>
+            <div className="flex justify-center mt-2 gap-2 items-center">
+              <img src="/phone.jpeg" className="h-8" alt="sell mobile" />
+              <p className="text-black font-semibold">
+                <a href="tel:+917670836076" className="text-black hover:underline hover:text-blue-500">
+                  +91 7670836076
+                </a>
+              </p>
+            </div>
+          </div>
+          {/* <div className="bg-white text-black p-6 rounded-lg shadow-lg">
+          <h3 className="text-2xl font-semibold">Repair Mobile</h3>
+          <p>Fix your damaged phone with ease.</p>
+        </div> */}
+        </section>
+      </div>
     </div>
-    </div>
-    </>
   );
 }
